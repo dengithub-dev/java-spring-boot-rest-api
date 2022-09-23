@@ -10,13 +10,13 @@ public class Users{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
-    public String id;
+    public Long id;
     public String name;
     public String address;
     public String email;
     public String password;
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
     public String getName() {
@@ -31,7 +31,7 @@ public class Users{
     public String getPassword() {
         return password;
     }
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
     public void setName(String name) {

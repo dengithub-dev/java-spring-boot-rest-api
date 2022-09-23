@@ -20,13 +20,25 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public Optional<Users> getUser(@PathVariable String id){
+    public Optional<Users> getUser(@PathVariable Long id){
 
-        return userService.findUser(Long.valueOf(id));
+        return userService.findId(id);
+    }
+
+    @PostMapping
+    public Users saveUser (@RequestBody Users users){
+        return userService.saveUser(users);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteUser(@PathVariable long id){
+    public void deleteUser(@PathVariable Long id){
         userService.delete(id);
     }
+
+    // Update operation
+    @PutMapping("/{id}")
+    public Users updateUser(@RequestBody Users users, @PathVariable Long id) {
+        return userService.updateUser(users, id);
+    }
+
 }
